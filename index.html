@@ -21,7 +21,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: var(--dark); line-height: 1.6; overflow-x: hidden; padding-bottom: 100px; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: var(--dark); line-height: 1.6; overflow-x: hidden; padding-bottom: 120px; }
         
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
         .section-padding { padding: 80px 0; }
@@ -64,9 +64,13 @@
         .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid var(--border); padding: 16px 0; z-index: 1000; box-shadow: 0 -4px 10px rgba(0,0,0,0.05); display: none; }
         .sticky-flex { display: flex; justify-content: space-between; align-items: center; }
 
-        .comp-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
-        .comp-table th { text-align: left; padding: 16px; border-bottom: 2px solid var(--border); background: var(--light); }
-        .comp-table td { padding: 16px; border-bottom: 1px solid var(--border); }
+        .comp-table { width: 100%; border-collapse: collapse; margin-top: 32px; background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); }
+        .comp-table th { text-align: left; padding: 20px; border-bottom: 2px solid var(--border); background: #f1f5f9; color: var(--dark); font-weight: 700; }
+        .comp-table td { padding: 18px 20px; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+        .comp-table tr:last-child td { border-bottom: none; }
+        .tag { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+        .tag-blue { background: #dbeafe; color: #1e40af; }
+        .tag-purple { background: #f3e8ff; color: #6b21a8; }
 
         @media (max-width: 768px) {
             .calc-grid { grid-template-columns: 1fr; }
@@ -82,9 +86,9 @@
             <nav>
                 <div class="logo">MACK<span>AGENT</span></div>
                 <div class="nav-links">
-                    <a href="#how-it-works">How it Works</a>
+                    <a href="#how-it-works">Process</a>
+                    <a href="#comparison">Compare Plans</a>
                     <a href="#calculator">Calculator</a>
-                    <a href="#faq">FAQ</a>
                     <a href="mailto:EMAIL@GMAIL.COM">Contact</a>
                 </div>
             </nav>
@@ -102,54 +106,65 @@
 
     <section id="how-it-works" class="section-padding">
         <div class="container">
-            <h2 style="text-align:center; margin-bottom: 40px;">How it Works</h2>
+            <h2 style="text-align:center; margin-bottom: 40px;">Simple 3-Step Protection</h2>
             <div class="grid-3">
                 <div class="card">
                     <div class="step-num">1</div>
                     <h3>Select & Verify</h3>
-                    <p>Enter your gear details and purchase date to check eligibility for Standard or Diamond plans.</p>
+                    <p>Use our calculator to choose your plan. We'll instantly verify your eligibility based on purchase date.</p>
                 </div>
                 <div class="card">
                     <div class="step-num">2</div>
                     <h3>Secure Payment</h3>
-                    <p>Pay via PayPal. You'll receive an auto-email confirming your payment was received.</p>
+                    <p>Pay securely via PayPal. You will receive an immediate automated email confirmation.</p>
                 </div>
                 <div class="card">
                     <div class="step-num">3</div>
-                    <h3>Receive Certificate</h3>
-                    <p>We process your registration and send your official certificate with guidance.</p>
+                    <h3>Registration</h3>
+                    <p>We process your data and email your official certificate with full registration guidance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="plans" class="section-padding" style="background: #fafafa;">
+    <section id="comparison" class="section-padding" style="background: #fafafa;">
         <div class="container">
-            <h2 style="text-align:center; margin-bottom: 40px;">Plan Comparison</h2>
+            <h2 style="text-align:center; margin-bottom: 12px;">Standard vs. Diamond Plans</h2>
+            <p style="text-align:center; color: var(--secondary); margin-bottom: 48px;">Choose the level of protection that fits your needs.</p>
             <div style="overflow-x: auto;">
                 <table class="comp-table">
                     <thead>
                         <tr>
                             <th>Feature</th>
-                            <th>Standard (Worldwide)</th>
-                            <th>Diamond (USA/Intl)</th>
+                            <th><span class="tag tag-blue">Standard Plan</span></th>
+                            <th><span class="tag tag-purple">Diamond Plan</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Territory</td>
-                            <td>Worldwide (incl. USA)</td>
-                            <td>USA only OR Outside USA</td>
+                            <td><strong>Coverage Area</strong></td>
+                            <td>Worldwide (Includes USA)</td>
+                            <td>USA only OR International only (not both)</td>
                         </tr>
                         <tr>
-                            <td>Eligibility</td>
-                            <td>90+ days mfg warranty left</td>
-                            <td>Within 30 days of purchase</td>
+                            <td><strong>Purchase Window</strong></td>
+                            <td>Requires 90+ days of Mfg. Warranty left</td>
+                            <td>Must be purchased within <strong>30 days</strong> of gear purchase</td>
                         </tr>
                         <tr>
-                            <td>Durations</td>
-                            <td>1y, 3y, 5y</td>
-                            <td>2y, 3y, 5y (Intl 3y only)</td>
+                            <td><strong>Impact & Liquid</strong></td>
+                            <td>Manufacturer defects only</td>
+                            <td>Includes Accidental Damage (Impact/Drops/Liquid)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Durations</strong></td>
+                            <td>1, 3, or 5 Years</td>
+                            <td>USA: 2, 3, 5 Years | Intl: 3 Years only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Older gear or basic extended coverage</td>
+                            <td>New gear requiring premium accidental protection</td>
                         </tr>
                     </tbody>
                 </table>
@@ -164,14 +179,14 @@
                     <div class="calc-inputs">
                         <h2 style="margin-bottom: 24px;">Price Calculator</h2>
                         <div class="form-group">
-                            <label>Location</label>
+                            <label>Gear Location</label>
                             <select id="location" onchange="updateUI()">
-                                <option value="USA">USA</option>
-                                <option value="INTL">Outside USA</option>
+                                <option value="USA">United States</option>
+                                <option value="INTL">Outside USA / International</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Plan Type</label>
+                            <label>Protection Plan</label>
                             <select id="plan" onchange="updateUI()"></select>
                         </div>
                         <div class="form-group">
@@ -179,40 +194,42 @@
                             <select id="duration" onchange="calculate()"></select>
                         </div>
                         <div class="form-group">
-                            <label>Purchase Date</label>
+                            <label>Purchase Date (on Invoice)</label>
                             <input type="date" id="purchaseDate" onchange="calculate()">
                         </div>
                         <div class="form-group">
                             <label>Invoice Total (USD)</label>
-                            <input type="number" id="invoiceTotal" placeholder="Enter amount" oninput="calculate()">
+                            <input type="number" id="invoiceTotal" placeholder="Amount shown on invoice" oninput="calculate()">
                         </div>
                         <div class="form-group">
-                            <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
-                                <input type="checkbox" checked style="width: auto;"> Camera Gear
-                            </label>
-                            <label style="font-weight: normal; display: flex; align-items: center; gap: 8px; margin-top: 8px;">
-                                <input type="checkbox" style="width: auto;"> Lens/Flash
-                            </label>
+                            <div style="display:flex; gap: 20px; margin-bottom: 15px;">
+                                <label style="font-weight: normal; display: flex; align-items: center; gap: 8px; cursor:pointer;">
+                                    <input type="checkbox" checked style="width: auto;"> Camera
+                                </label>
+                                <label style="font-weight: normal; display: flex; align-items: center; gap: 8px; cursor:pointer;">
+                                    <input type="checkbox" style="width: auto;"> Lens / Flash
+                                </label>
+                            </div>
                         </div>
                         <div id="mfgCheck" class="form-group" style="display:none;">
-                            <label style="font-weight: normal; display: flex; align-items: flex-start; gap: 8px; color: var(--primary);">
-                                <input type="checkbox" id="mfgVerify" onchange="calculate()" style="width: auto; margin-top: 5px;"> 
-                                <span>I confirm 90+ days remain on the manufacturer warranty.</span>
+                            <label style="font-weight: normal; display: flex; align-items: flex-start; gap: 10px; color: var(--primary); background: #eff6ff; padding: 12px; border-radius: 8px; cursor: pointer;">
+                                <input type="checkbox" id="mfgVerify" onchange="calculate()" style="width: auto; margin-top: 4px;"> 
+                                <span>I confirm that <strong>90+ days</strong> remain on the original manufacturer warranty.</span>
                             </label>
                         </div>
                     </div>
                     <div class="calc-results">
                         <div class="summary-card">
-                            <h3>Summary</h3>
-                            <div id="summaryContent" style="margin: 20px 0;"></div>
-                            <div style="border-top: 1px solid var(--border); padding-top: 20px;">
-                                <div style="font-size: 0.8rem; font-weight: 600; color: var(--secondary);">FINAL PRICE</div>
+                            <h3 style="margin-bottom: 15px;">Quote Summary</h3>
+                            <div id="summaryContent"></div>
+                            <div style="border-top: 1px solid var(--border); margin-top: 20px; padding-top: 20px;">
+                                <div style="font-size: 0.8rem; font-weight: 600; color: var(--secondary);">FINAL PRICE (USD)</div>
                                 <div class="price-display" id="finalPrice">—</div>
                             </div>
                             <div id="statusMsg" class="status-msg"></div>
                             <button id="payBtn" disabled class="btn btn-primary" style="width: 100%; margin-top: 16px;">Pay with PayPal</button>
-                            <p style="font-size: 0.75rem; text-align: center; margin-top: 12px; color: var(--secondary);">
-                                Authorized agent (12+ years). Transparent process.
+                            <p style="font-size: 0.75rem; text-align: center; margin-top: 16px; color: var(--secondary);">
+                                Authorized agent (12+ years). <br>Pay securely via PayPal (opens new tab).
                             </p>
                         </div>
                     </div>
@@ -221,30 +238,19 @@
         </div>
     </section>
 
-    <section id="faq" class="section-padding">
-        <div class="container" style="max-width: 800px;">
-            <h2 style="text-align:center; margin-bottom: 40px;">FAQs</h2>
-            <div class="form-group">
-                <p><strong>Is this insurance?</strong><br>No, these are service contracts. Coverage depends on contract terms; exclusions apply.</p>
-            </div>
-            <div class="form-group">
-                <p><strong>How do I receive my certificate?</strong><br>Once payment is confirmed, we manually process your registration and email you the certificate and guidance.</p>
-            </div>
-        </div>
-    </section>
-
     <footer style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center; color: var(--secondary); font-size: 0.85rem;">
         <div class="container">
-            <p>© 2026 Authorized Mack Agent. All prices in USD.</p>
-            <p><a href="mailto:EMAIL@GMAIL.COM" style="color: var(--primary);">Contact Support</a></p>
+            <p>© 2026 Authorized Mack Agent. We provide full transparency and structured service.</p>
+            <p style="margin-top: 10px;">Prices based on invoice total. Coverage depends on contract terms; exclusions apply.</p>
+            <p style="margin-top: 20px;"><a href="mailto:EMAIL@GMAIL.COM" style="color: var(--primary);">Contact Support</a></p>
         </div>
     </footer>
 
     <div id="stickyBar" class="sticky-bar">
         <div class="container">
             <div class="sticky-flex">
-                <div>
-                    <div id="stickyStatus" style="font-size: 0.8rem; font-weight: 700;">Quote Needed</div>
+                <div style="text-align: left;">
+                    <div id="stickyStatus" style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Calculating...</div>
                     <div id="stickyPrice" style="font-size: 1.25rem; font-weight: 800;">—</div>
                 </div>
                 <button id="stickyBtn" disabled class="btn btn-primary">Pay via PayPal</button>
@@ -260,7 +266,7 @@
                 const response = await fetch('pricing.json');
                 pricingData = await response.json();
                 updateUI();
-            } catch (e) { console.error("Pricing error", e); }
+            } catch (e) { console.error("Data load error", e); }
         }
 
         function updateUI() {
@@ -270,23 +276,23 @@
             
             planSelect.innerHTML = '';
             if (loc === 'USA') {
-                planSelect.add(new Option('Standard (Worldwide)', 'standard'));
-                planSelect.add(new Option('Diamond USA', 'diamond_us'));
+                planSelect.add(new Option('Standard (Worldwide Coverage)', 'standard'));
+                planSelect.add(new Option('Diamond USA (Accidental Damage)', 'diamond_us'));
             } else {
-                planSelect.add(new Option('Standard (Worldwide)', 'standard'));
-                planSelect.add(new Option('Diamond International', 'diamond_intl'));
+                planSelect.add(new Option('Standard (Worldwide Coverage)', 'standard'));
+                planSelect.add(new Option('Diamond International (No USA)', 'diamond_intl'));
             }
 
             const plan = planSelect.value;
             durSelect.innerHTML = '';
             if (plan === 'standard') {
-                ['1y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year'), v)));
+                ['1y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year(s)'), v)));
                 document.getElementById('mfgCheck').style.display = 'block';
             } else if (plan === 'diamond_us') {
-                ['2y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year'), v)));
+                ['2y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year(s)'), v)));
                 document.getElementById('mfgCheck').style.display = 'none';
             } else {
-                durSelect.add(new Option('3 Year', '3y'));
+                durSelect.add(new Option('3 Years (Diamond Intl)', '3y'));
                 document.getElementById('mfgCheck').style.display = 'none';
             }
             calculate();
@@ -318,16 +324,16 @@
             let price = null;
 
             if (plan.startsWith('diamond') && diffDays > 30) {
-                error = "Diamond plan must be purchased within 30 days of equipment purchase.";
+                error = "Ineligible: Diamond plans must be purchased within 30 days of equipment purchase.";
             } else if (plan === 'standard' && !mfgOk) {
-                error = "Standard plan requires 90+ days of manufacturer warranty remaining.";
+                error = "Ineligible: You must confirm 90+ days remain on mfg warranty.";
             }
 
             const table = pricingData.tables[`${plan}_${duration}`];
             const band = table ? table.find(b => total <= b.max) : null;
             
             if (table && !band) {
-                error = "Invoice exceeds limits. <a href='mailto:EMAIL@GMAIL.COM'>Contact for quote</a>";
+                error = "Limit Exceeded: Please <a href='mailto:EMAIL@GMAIL.COM'>Contact for a custom quote</a>.";
             } else if (band) {
                 price = band.price;
             }
@@ -339,7 +345,7 @@
                 statusBox.className = "status-msg error";
                 statusBox.innerHTML = error;
                 payBtn.disabled = stickyBtn.disabled = true;
-                document.getElementById('stickyStatus').innerText = "Ineligible";
+                document.getElementById('stickyStatus').innerText = "Not Eligible";
             } else {
                 statusBox.className = "status-msg success";
                 statusBox.innerText = "✓ Gear is eligible for protection.";
@@ -347,17 +353,15 @@
                 document.getElementById('stickyStatus').innerText = "Eligible";
             }
 
-            const payUrl = `https://paypal.me/Test007/${price}`;
-            payBtn.onclick = stickyBtn.onclick = () => window.open(payUrl, '_blank');
+            payBtn.onclick = stickyBtn.onclick = () => window.open(`https://paypal.me/Test007/${price}`, '_blank');
             stickyBar.style.display = 'block';
             
             document.getElementById('summaryContent').innerHTML = `
+                <div class="summary-row"><span>Plan:</span><span>${plan.replace('_', ' ').toUpperCase()}</span></div>
                 <div class="summary-row"><span>Location:</span><span>${document.getElementById('location').value}</span></div>
-                <div class="summary-row"><span>Plan:</span><span>${plan.toUpperCase()}</span></div>
                 <div class="summary-row"><span>Total:</span><span>$${total}</span></div>
             `;
         }
-
         window.onload = init;
     </script>
 </body>

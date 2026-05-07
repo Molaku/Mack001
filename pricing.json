@@ -2,8 +2,8 @@
   "currency": "USD",
   "tables": {
     "standard_1y": [
-      { "max": 1000, "price": 22 },
-      { "max": 2000, "price": 29 }
+      { "max": 1000, "price": 22, "ID": 1020 },
+      { "max": 2000, "price": 29, "ID": 1030 }
     ],
     "standard_3y": [
       { "max": 500, "price": 34 },

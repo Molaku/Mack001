@@ -277,6 +277,8 @@
             const payBtn = document.getElementById('payBtn');
             const priceEl = document.getElementById('finalPrice');
 
+            let selectedID = "—";
+
             if (!total || !dateStr) return;
 
             const diffDays = Math.floor((new Date() - new Date(dateStr)) / (1000 * 60 * 60 * 24));
@@ -293,7 +295,10 @@
             const band = table ? table.find(b => total <= b.max) : null;
             
             if (table && !band) error = "Limit exceeded. Contact for quote.";
-            else if (band) price = band.price;
+            else if (band) {
+                price = band.price;
+                selectedID = band.ID || "—";
+            }
 
             priceEl.innerText = price ? `$${price}` : "—";
             
@@ -311,6 +316,9 @@
             document.getElementById('summaryContent').innerHTML = `
                 <div style="display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:8px;"><span>Plan:</span><strong>${selections.plan}</strong></div>
                 <div style="display:flex; justify-content:space-between; font-size:0.9rem;"><span>Duration:</span><strong>${durationText}</strong></div>
+                <div style="display:flex; justify-content:space-between; font-size:0.9rem; margin-top:12px; padding-top:12px; border-top:1px dashed #eee;">
+                    <span>Contract ID:</span><strong>#${selectedID}</strong>
+                </div> 
             `;
         }
         window.onload = init;

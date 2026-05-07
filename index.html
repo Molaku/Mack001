@@ -241,11 +241,11 @@
             const planBox = document.getElementById('planSelector');
             const durSelect = document.getElementById('duration');
             
-            let planHTML = `<div class="selection-box ${selections.plan==='standard'?'active':''}" onclick="selectOption('plan', 'Standard', this)">Standard</div>`;
+            let planHTML = `<div class="selection-box ${selections.plan==='Standard'?'active':''}" onclick="selectOption('plan', 'Standard', this)">Standard</div>`;
             if (selections.location === 'USA') {
-                planHTML += `<div class="selection-box ${selections.plan==='diamond_us'?'active':''}" onclick="selectOption('plan', 'Diamond USA', this)">Diamond USA</div>`;
+                planHTML += `<div class="selection-box ${selections.plan==='Diamond USA'?'active':''}" onclick="selectOption('plan', 'Diamond USA', this)">Diamond USA</div>`;
             } else {
-                planHTML += `<div class="selection-box ${selections.plan==='diamond_intl'?'active':''}" onclick="selectOption('plan', 'Diamond Intl', this)">Diamond Intl</div>`;
+                planHTML += `<div class="selection-box ${selections.plan==='Diamond Intl'?'active':''}" onclick="selectOption('plan', 'Diamond Intl', this)">Diamond Intl</div>`;
             }
             planBox.innerHTML = planHTML;
 

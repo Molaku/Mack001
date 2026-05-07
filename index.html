@@ -235,7 +235,7 @@
 
         function updateUI() {
             const planBox = document.getElementById('planSelector');
-            const durSelect = document.getElementById('duration');
+            const durSelect = document.getElementById('');
             
             let planHTML = `<div class="selection-box ${selections.plan==='standard'?'active':''}" onclick="selectOption('plan', 'standard', this)">Standard</div>`;
             if (selections.location === 'USA') {
@@ -264,10 +264,11 @@
 
         function calculate() {
             if (!pricingData) return;
-            const duration = document.getElementById('duration').value;
+            const  = document.getElementById('').value;
             const dateStr = document.getElementById('purchaseDate').value;
             const total = parseFloat(document.getElementById('invoiceTotal').value);
             const mfgOk = document.getElementById('mfgVerify').checked;
+            const durationText = durSelect.options[durSelect.selectedIndex].text;
             
             const statusBox = document.getElementById('statusMsg');
             const payBtn = document.getElementById('payBtn');
@@ -306,7 +307,7 @@
             payBtn.onclick = () => window.open(`https://paypal.me/Test007/${price}`, '_blank');
             document.getElementById('summaryContent').innerHTML = `
                 <div style="display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:8px;"><span>Plan:</span><strong>${selections.plan.toUpperCase()}</strong></div>
-                <div style="display:flex; justify-content:space-between; font-size:0.9rem;"><span>Duration:</span><strong>${duration}</strong></div>
+                <div style="display:flex; justify-content:space-between; font-size:0.9rem;"><span>Duration:</span><strong>${durationText}</strong></div>
             `;
         }
         window.onload = init;

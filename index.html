@@ -1,4 +1,3 @@
-<!-- index.html (PART 1/2) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +26,12 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
         .section-padding { padding: 80px 0; }
         
-        header { height: 80px; display: flex; align-items: center; border-bottom: 1px solid var(--border); background: white; sticky: top; }
+        header { height: 80px; display: flex; align-items: center; border-bottom: 1px solid var(--border); background: white; position: sticky; top: 0; z-index: 100; }
         nav { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .logo { font-weight: 800; font-size: 1.25rem; color: var(--dark); letter-spacing: -0.025em; }
         .logo span { color: var(--primary); }
-        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 500; font-size: 0.95rem; margin-left: 32px; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 500; font-size: 0.95rem; margin-left: 32px; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
 
         .hero { text-align: center; padding: 100px 0 60px; background: radial-gradient(circle at top, #f0f7ff 0%, #ffffff 100%); }
         .hero h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.05em; }
@@ -54,14 +54,14 @@
         label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
         select, input { width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); font-size: 1rem; font-family: inherit; }
         
-        .summary-card { background: white; border-radius: 16px; padding: 32px; border: 1px solid var(--border); position: sticky; top: 20px; }
+        .summary-card { background: white; border-radius: 16px; padding: 32px; border: 1px solid var(--border); position: sticky; top: 100px; }
         .summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem; }
         .price-display { font-size: 2.5rem; font-weight: 800; color: var(--dark); }
         .status-msg { margin: 16px 0; padding: 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; display: none; }
         .status-msg.error { display: block; background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
         .status-msg.success { display: block; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
         
-        .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid var(--border); padding: 16px 0; z-index: 1000; box-shadow: 0 -4px 10px rgba(0,0,0,0.05); display: none; }
+        .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid var(--border); padding: 16px 0; z-index: 1000; box-shadow: 0 -4px 10px rgba(0,0,0,0.05); display: none; transition: transform 0.3s ease; }
         .sticky-flex { display: flex; justify-content: space-between; align-items: center; }
 
         @media (max-width: 768px) {
@@ -73,7 +73,16 @@
 </head>
 <body>
     <header>
-        <div class="container"><nav><div class="logo">MACK<span>AGENT</span></div><div class="nav-links"><a href="#calculator">Calculator</a><a href="mailto:EMAIL@GMAIL.COM">Contact</a></div></nav></div>
+        <div class="container">
+            <nav>
+                <div class="logo">MACK<span>AGENT</span></div>
+                <div class="nav-links">
+                    <a href="#how-it-works">How it Works</a>
+                    <a href="#calculator">Calculator</a>
+                    <a href="mailto:EMAIL@GMAIL.COM">Contact</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
@@ -85,11 +94,34 @@
         </div>
     </section>
 
+    <section id="how-it-works" class="section-padding">
+        <div class="container">
+            <div class="grid-3">
+                <div class="card">
+                    <div class="step-num">1</div>
+                    <h3>Select Gear</h3>
+                    <p>Enter your purchase date and gear value to see your protection options.</p>
+                </div>
+                <div class="card">
+                    <div class="step-num">2</div>
+                    <h3>Verify Eligibility</h3>
+                    <p>Standard and Diamond plans have specific time-based requirements.</p>
+                </div>
+                <div class="card">
+                    <div class="step-num">3</div>
+                    <h3>Secure Payment</h3>
+                    <p>Complete your purchase via PayPal and receive your certificate by email.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="calculator" class="section-padding">
         <div class="container">
             <div class="calculator-wrapper">
                 <div class="calc-grid">
                     <div class="calc-inputs">
+                        <h2 style="margin-bottom: 24px;">Price Calculator</h2>
                         <div class="form-group">
                             <label>Gear Location</label>
                             <select id="location" onchange="updateUI()">
@@ -98,7 +130,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Plan</label>
+                            <label>Warranty Plan</label>
                             <select id="plan" onchange="updateUI()"></select>
                         </div>
                         <div class="form-group">
@@ -106,17 +138,17 @@
                             <select id="duration" onchange="calculate()"></select>
                         </div>
                         <div class="form-group">
-                            <label>Purchase Date</label>
+                            <label>Purchase Date (from Invoice)</label>
                             <input type="date" id="purchaseDate" onchange="calculate()">
                         </div>
                         <div class="form-group">
                             <label>Invoice Total (USD)</label>
-                            <input type="number" id="invoiceTotal" oninput="calculate()">
+                            <input type="number" id="invoiceTotal" placeholder="e.g. 1500" oninput="calculate()">
                         </div>
                         <div class="form-group">
-                            <label style="display:flex; align-items:center; gap:8px;">
-                                <input type="checkbox" id="mfgVerify" onchange="calculate()" style="width:auto;"> 
-                                <span>I confirm 90+ days remain on manufacturer warranty.</span>
+                            <label style="display:flex; align-items:flex-start; gap:10px; font-weight: normal; cursor: pointer;">
+                                <input type="checkbox" id="mfgVerify" onchange="calculate()" style="width:auto; margin-top: 4px;"> 
+                                <span>I confirm 90+ days remain on the manufacturer warranty.</span>
                             </label>
                         </div>
                     </div>
@@ -124,9 +156,12 @@
                         <div class="summary-card">
                             <h3>Quote Summary</h3>
                             <div id="summaryContent" style="margin: 20px 0;"></div>
-                            <div class="price-display" id="finalPrice">—</div>
+                            <div class="summary-total" style="border-top: 1px solid var(--border); padding-top: 20px;">
+                                <div style="font-size: 0.8rem; font-weight:600; color:var(--secondary);">TOTAL PRICE</div>
+                                <div class="price-display" id="finalPrice">—</div>
+                            </div>
                             <div id="statusMsg" class="status-msg"></div>
-                            <button id="payBtn" disabled class="btn btn-primary" style="width: 100%;">Pay with PayPal</button>
+                            <button id="payBtn" disabled class="btn btn-primary" style="width: 100%; margin-top: 16px;">Pay with PayPal</button>
                         </div>
                     </div>
                 </div>
@@ -134,8 +169,25 @@
         </div>
     </section>
 
-    <div id="stickyBar" class="sticky-bar"><div class="container"><div class="sticky-flex"><div><div id="stickyStatus" style="font-size:0.8rem; font-weight:700;"></div><div id="stickyPrice" style="font-size:1.25rem; font-weight:800;">—</div></div><button id="stickyBtn" disabled class="btn btn-primary">Pay with PayPal</button></div></div></div>
-<!-- index.html (PART 2/2) -->
+    <div id="stickyBar" class="sticky-bar">
+        <div class="container">
+            <div class="sticky-flex">
+                <div style="text-align: left;">
+                    <div id="stickyStatus" style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Quote Needed</div>
+                    <div id="stickyPrice" style="font-size: 1.25rem; font-weight: 800;">—</div>
+                </div>
+                <button id="stickyBtn" disabled class="btn btn-primary">Pay via PayPal</button>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center; color: var(--secondary); font-size: 0.85rem;">
+        <div class="container">
+            <p>© 2026 Authorized Mack Agent. Reliable protection for 12+ years.</p>
+            <p style="margin-top: 10px;">Coverage depends on contract terms; exclusions apply.</p>
+        </div>
+    </footer>
+
     <script>
         let pricingData = null;
 
@@ -144,7 +196,9 @@
                 const response = await fetch('pricing.json');
                 pricingData = await response.json();
                 updateUI();
-            } catch (e) { console.error("Pricing error", e); }
+            } catch (e) {
+                console.error("Failed to load pricing data", e);
+            }
         }
 
         function updateUI() {
@@ -165,10 +219,13 @@
             durSelect.innerHTML = '';
             if (plan === 'standard') {
                 ['1y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year(s)'), v)));
+                document.getElementById('mfgVerify').parentElement.style.display = 'flex';
             } else if (plan === 'diamond_us') {
                 ['2y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year(s)'), v)));
+                document.getElementById('mfgVerify').parentElement.style.display = 'none';
             } else {
                 durSelect.add(new Option('3 Years', '3y'));
+                document.getElementById('mfgVerify').parentElement.style.display = 'none';
             }
             calculate();
         }
@@ -190,6 +247,7 @@
             if (!invoiceTotal || !purchaseDateStr) {
                 priceEl.innerText = "—";
                 statusBox.style.display = 'none';
+                stickyBar.style.display = 'none';
                 return;
             }
 
@@ -197,21 +255,24 @@
             let error = null;
             let price = null;
 
+            // Eligibility Rules
             if (plan.startsWith('diamond') && diffDays > 30) {
-                error = "Diamond requires purchase within 30 days of gear purchase.";
+                error = "Diamond plans must be purchased within 30 days of gear purchase.";
             } else if (plan === 'standard' && !mfgChecked) {
-                error = "Please confirm 90+ days remain on mfg warranty.";
+                error = "Please confirm 90+ days remain on your manufacturer warranty.";
             }
 
+            // Pricing Lookup
             const table = pricingData.tables[`${plan}_${duration}`];
             const band = table ? table.find(b => invoiceTotal <= b.max) : null;
             
             if (table && !band) {
-                error = "Invoice exceeds limit. <a href='mailto:EMAIL@GMAIL.COM'>Contact for quote</a>";
+                error = "Invoice exceeds standard limits. <a href='mailto:EMAIL@GMAIL.COM'>Contact for a custom quote</a>";
             } else if (band) {
                 price = band.price;
             }
 
+            // UI Update
             priceEl.innerText = price ? `$${price}` : "—";
             document.getElementById('stickyPrice').innerText = price ? `$${price}` : "—";
             
@@ -219,21 +280,25 @@
                 statusBox.className = "status-msg error";
                 statusBox.innerHTML = error;
                 payBtn.disabled = stickyBtn.disabled = true;
+                document.getElementById('stickyStatus').innerText = "Action Required";
             } else {
                 statusBox.className = "status-msg success";
-                statusBox.innerText = "Eligible for protection.";
+                statusBox.innerText = "✓ Gear is eligible for protection.";
                 payBtn.disabled = stickyBtn.disabled = false;
+                document.getElementById('stickyStatus').innerText = "Eligible";
             }
 
             payBtn.onclick = stickyBtn.onclick = () => window.open(`https://paypal.me/Test007/${price}`, '_blank');
             stickyBar.style.display = 'block';
             
             document.getElementById('summaryContent').innerHTML = `
-                <div class="summary-row"><span>Plan:</span><span>${plan}</span></div>
-                <div class="summary-row"><span>Invoice:</span><span>$${invoiceTotal}</span></div>
+                <div class="summary-row"><span>Plan:</span><span>${plan.replace('_', ' ').toUpperCase()}</span></div>
+                <div class="summary-row"><span>Duration:</span><span>${duration.toUpperCase()}</span></div>
+                <div class="summary-row"><span>Location:</span><span>${document.getElementById('location').value}</span></div>
             `;
         }
+
         window.onload = init;
     </script>
 </body>
-</html>    
+</html>

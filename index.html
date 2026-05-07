@@ -219,6 +219,10 @@
         let selections = { location: 'USA', plan: 'standard' };
 
         async function init() {
+            const dateInput = document.getElementById('purchaseDate');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+            
             try {
                 const response = await fetch('pricing.json');
                 pricingData = await response.json();

@@ -247,9 +247,9 @@
 
             durSelect.innerHTML = '';
             if (selections.plan === 'standard') {                
-                durSelect.add(new Option('5 Years'), '5y');
-                durSelect.add(new Option('3 Years'), '2y');
-                durSelect.add(new Option('1 Year'), '1y');
+                durSelect.add(new Option('1 Year', '1y'));                
+                durSelect.add(new Option('3 Years', '2y'));
+                durSelect.add(new Option('5 Years', '5y'));
                 //['1y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year(s)'), v)));
                 document.getElementById('mfgCheck').style.display = 'block';
             } else if (selections.plan === 'diamond_us') {

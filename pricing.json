@@ -1,0 +1,34 @@
+{
+  "currency": "USD",
+  "tables": {
+    "standard_1y": [
+      { "max": 1000, "price": 22 },
+      { "max": 2000, "price": 29 }
+    ],
+    "standard_3y": [
+      { "max": 500, "price": 34 },
+      { "max": 6000, "price": 136 }
+    ],
+    "standard_5y": [
+      { "max": 500, "price": 42 },
+      { "max": 3000, "price": 129 }
+    ],
+    "diamond_us_2y": [
+      { "max": 1000, "price": 65 },
+      { "max": 3000, "price": 184 }
+    ],
+    "diamond_us_3y": [
+      { "max": 1000, "price": 124 },
+      { "max": 4000, "price": 296 }
+    ],
+    "diamond_us_5y": [
+      { "max": 1500, "price": 296 },
+      { "max": 5000, "price": 643 }
+    ],
+    "diamond_intl_3y": [
+      { "max": 500, "price": 64 },
+      { "max": 2000, "price": 229 },
+      { "max": 5000, "price": 360 }
+    ]
+  }
+}

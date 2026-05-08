@@ -256,7 +256,7 @@
                 durSelect.add(new Option('5 Years', '5y'));                
                 document.getElementById('mfgCheck').style.display = 'block';
             } else if (selections.plan === 'diamond_us') {
-                ['2y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Year'), v)));
+                ['2y', '3y', '5y'].forEach(v => durSelect.add(new Option(v.replace('y',' Years'), v)));
                 document.getElementById('mfgCheck').style.display = 'none';
             } else {
                 durSelect.add(new Option('3 Years', '3y'));
